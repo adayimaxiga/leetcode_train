@@ -17,9 +17,18 @@
 class Solution
 {
 public:
+    TreeNode *sortedArrayToBST_a(vector<int> &nums, int startnum, int endnum)
+    {
+        if()
+        TreeNode * ptreenode = new TreeNode(nums);
+
+    }
+
     TreeNode *sortedArrayToBST(vector<int> &nums)
     {
+        int size = nums.size();
         
+        int midnum = 
     }
 };
 // @lc code=end
