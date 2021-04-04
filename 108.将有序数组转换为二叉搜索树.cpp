@@ -17,18 +17,20 @@
 class Solution
 {
 public:
-    TreeNode *sortedArrayToBST_a(vector<int> &nums, int startnum, int endnum)
+    TreeNode *dfs(vector<int> &nums,int pleft,int pright)
     {
-        if()
-        TreeNode * ptreenode = new TreeNode(nums);
+        if(pleft>=pright)
+            return nullptr;
+        int mid = (pleft + pright)/2;
+        TreeNode * newnode = new TreeNode(nums[mid]);
+        newnode->left = dfs(nums,pleft,mid);
+        newnode->right = dfs(nums,mid+1,pright);
 
+        return newnode;
     }
-
     TreeNode *sortedArrayToBST(vector<int> &nums)
     {
-        int size = nums.size();
-        
-        int midnum = 
+        return dfs(nums,0,nums.size());;
     }
 };
 // @lc code=end
