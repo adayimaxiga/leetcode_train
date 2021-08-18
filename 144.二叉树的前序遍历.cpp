@@ -1,7 +1,7 @@
 /*
- * @lc app=leetcode.cn id=145 lang=cpp
+ * @lc app=leetcode.cn id=144 lang=cpp
  *
- * [145] 二叉树的后序遍历
+ * [144] 二叉树的前序遍历
  */
 
 // @lc code=start
@@ -18,19 +18,23 @@
  */
 class Solution {
 public:
-    vector<int> postorderTraversal(TreeNode* root) {
+    vector<int> preorderTraversal(TreeNode* root) {
         vector<int> ret;
         if(root == nullptr)
         {
             return ret;
         }
-        vector<int> left = postorderTraversal(root->left);
-        ret.insert(ret.end(),left.begin(),left.end());
-        vector<int> right = postorderTraversal(root->right);
-        ret.insert(ret.end(),right.begin(),right.end());
-
         ret.push_back(root->val);
-
+        vector<int> left = preorderTraversal(root->left);
+        for(int i = 0;i < left.size(); i++)
+        {
+            ret.push_back(left[i]);
+        }
+        vector<int> right = preorderTraversal(root->right);
+        for(int i = 0;i < right.size(); i++)
+        {
+            ret.push_back(right[i]);
+        }
         return ret;
     }
 };
