@@ -5,16 +5,16 @@
  */
 
 // @lc code=start
-class Solution {
+class Solution
+{
 public:
-    bool hasAlternatingBits(int n) {
-
-        if(n & 0x01)
-        {
-            n >> 1
+    bool hasAlternatingBits(int n)
+    {
+         while(n>0){
+            if(n%2==(n/2)%2) return false;
+            n/=2;
         }
-        
+        return true;
     }
 };
 // @lc code=end
-
